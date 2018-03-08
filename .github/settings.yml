@@ -1,1 +1,6 @@
-
+filename: bot.md
+include:
+  - app
+  - /\.js$/
+exclude:
+- __tests__
