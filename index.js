@@ -9,12 +9,11 @@ const Status = Object.seal({
 
 module.exports = (robot) => {
   // Your code here
-  robot.log('Yay, the app was loaded!')
-  robot.on('pull_request.synchronize',checkChangeLog)
-  robot.on('pull_request.opened',checkChangeLog)
-  robot.on('pull_request.reopened',checkChangeLog)
-  robot.on('pull_request.labeled',checkChangeLog)
-  robot.on('pull_request.unlabeled',checkChangeLog)
+  robot.on('pull_request.synchronize', checkChangelog)
+  robot.on('pull_request.opened', checkChangelog)
+  robot.on('pull_request.reopened', checkChangelog)
+  robot.on('pull_request.labeled', checkChangelog)
+  robot.on('pull_request.unlabeled', checkChangelog)
 
   async function results (context, path = '.') {
     return context.github.pullRequests.getfiles(context.issues({path: path, per_page: 1}))
@@ -90,7 +89,7 @@ module.exports = (robot) => {
     const params = context.repo({
       sha: context.payload.pull_request.head.sha,
       state: status.toString().slice(7, -1),
-      target_url: 'https://github.com',
+      target_url: 'https://github.com/rails/rails',
       description: descriptionFor(status),
       context: 'changelog'
     })

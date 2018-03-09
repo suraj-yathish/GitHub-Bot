@@ -15,14 +15,14 @@
     "lint"
   ],
   "dependencies": {
-    "probot": "^5.0.0"
+    "probot": "^5.0.1"
   },
   "now": {
     "env": {
       "NODE_ENV": "production",
       "DISABLE_TUNNEL": "1",
       "WEBHOOK_SECRET": "@webhook-secret",
-      "PRIVATE_KEY":"@private-key"
+      "PRIVATE_KEY": "@private-key"
     }
   },
   "devDependencies": {
